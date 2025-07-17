@@ -82,10 +82,10 @@ body {
 }
 
 @keyframes slideshow {
-  0% { background-image: url("assets/power1.jpeg"); }
-  33% { background-image: url("assets/8.jpg"); }
-  66% { background-image: url("assets/looking.jpg"); }
-  100% { background-image: url("assets/power2.jpeg"); } /* Loops back to the first */
+  0% { background-image: url("assets/power1.webp"); }
+  33% { background-image: url("assets/8.webp"); }
+  66% { background-image: url("assets/looking.webp"); }
+  100% { background-image: url("assets/power2.webp"); } /* Loops back to the first */
 }
 
 nav {
@@ -220,7 +220,7 @@ nav {
 
 .service {
   background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
-    url("assets/service.jpg");
+    url("assets/service.webp");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -340,7 +340,7 @@ nav {
 
 .blog {
   min-height: 600px;
-  background-image: url("assets/black3.jpg"); /* Add your background image */
+  background-image: url("assets/black3.webp"); /* Add your background image */
   background-size: 100% 600px;
   background-position: top center;
   background-repeat: no-repeat;
@@ -362,7 +362,7 @@ nav {
   position: relative;
   width: 100%;
   margin-top: 2rem;
-  background-image: url("your-slider-bg.jpg"); /* Background behind slider */
+  background-image: url("your-slider-bg.webp"); /* Background behind slider */
   background-size: cover;
   background-position: center;
   padding: 2rem 0;
@@ -638,7 +638,7 @@ nav {
   object-fit: contain;
 }
 
-img[src="logo.png"] {
+img[src="logo.webp"] {
   transform: scale(1.5); /* Adjust scaling factor as needed */
 }
 
