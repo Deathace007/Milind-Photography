@@ -76,3 +76,14 @@ Array.from(instagram.children).forEach((item) => {
   duplicateNode.setAttribute("aria-hidden", true);
   instagram.appendChild(duplicateNode);
 });
+
+const imageSwiper = new Swiper('.swiper', {
+  // ... your existing options
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+  },
+});
