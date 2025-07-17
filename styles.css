@@ -13,6 +13,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  width: 100%;
 }
 
 .section__container {
@@ -77,15 +78,29 @@ body {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  animation: slideshow 10s infinite; /* Adjust timing for smooth transitions */
+  animation: slideshow 10s infinite;
+  /* Adjust timing for smooth transitions */
   transition: background-image 1s ease-in-out;
 }
 
 @keyframes slideshow {
-  0% { background-image: url("assets/power1.webp"); }
-  33% { background-image: url("assets/8.webp"); }
-  66% { background-image: url("assets/looking.webp"); }
-  100% { background-image: url("assets/power2.webp"); } /* Loops back to the first */
+  0% {
+    background-image: url("assets/power1.webp");
+  }
+
+  33% {
+    background-image: url("assets/8.webp");
+  }
+
+  66% {
+    background-image: url("assets/looking.webp");
+  }
+
+  100% {
+    background-image: url("assets/power2.webp");
+  }
+
+  /* Loops back to the first */
 }
 
 nav {
@@ -109,8 +124,10 @@ nav {
 
 .nav__logo img {
   filter: brightness(1.2) contrast(1.5);
-  background: transparent !important;  /* Force background to be removed */
-  mix-blend-mode: multiply;  /* Helps blend it with the background */
+  background: transparent !important;
+  /* Force background to be removed */
+  mix-blend-mode: multiply;
+  /* Helps blend it with the background */
   max-width: 100px;
 }
 
@@ -162,7 +179,9 @@ nav {
 }
 
 .about__container img {
-  max-width: 170px;
+  width: 100%;
+  max-width: 300px;
+  display: block;
   margin-inline: auto;
 }
 
@@ -225,10 +244,12 @@ nav {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
 .service__more {
-  color: var(--white); /* Change to your desired color */
-  font-weight: 500; 
-  text-align: center; 
+  color: var(--white);
+  /* Change to your desired color */
+  font-weight: 500;
+  text-align: center;
   margin-top: 1rem;
 }
 
@@ -265,7 +286,8 @@ nav {
 
 .service__card h4::after {
   position: absolute;
-  /* content: "~"; */ /* Remove or comment out this line */
+  /* content: "~"; */
+  /* Remove or comment out this line */
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -340,7 +362,8 @@ nav {
 
 .blog {
   min-height: 600px;
-  background-image: url("assets/black3.webp"); /* Add your background image */
+  background-image: url("assets/black3.webp");
+  /* Add your background image */
   background-size: 100% 600px;
   background-position: top center;
   background-repeat: no-repeat;
@@ -355,14 +378,16 @@ nav {
   text-align: center;
   width: 100%;
   max-width: 800px;
-  z-index: 2; /* Ensures text is above the background */
+  z-index: 2;
+  /* Ensures text is above the background */
 }
 
 .image-slider-wrapper {
   position: relative;
   width: 100%;
   margin-top: 2rem;
-  background-image: url("your-slider-bg.webp"); /* Background behind slider */
+  background-image: url("your-slider-bg.webp");
+  /* Background behind slider */
   background-size: cover;
   background-position: center;
   padding: 2rem 0;
@@ -396,6 +421,7 @@ nav {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -416,10 +442,14 @@ nav {
 }
 
 .instagram__flex img {
-  max-width: 200px; /* Increased size from 150px to 200px */
-  height: auto; /* Ensures images scale properly */
-  object-fit: cover; /* Keeps images well-proportioned */
-  border-radius: 10px; /* Optional: Adds rounded corners for a clean look */
+  max-width: 200px;
+  /* Increased size from 150px to 200px */
+  height: auto;
+  /* Ensures images scale properly */
+  object-fit: cover;
+  /* Keeps images well-proportioned */
+  border-radius: 10px;
+  /* Optional: Adds rounded corners for a clean look */
 }
 
 @keyframes scroll {
@@ -596,13 +626,13 @@ nav {
     font-family: var(--header-font);
     color: var(--white);
   }
-  
+
   .blog__content p {
     margin-bottom: 2rem;
     line-height: 1.75rem;
     color: var(--extra-light);
   }
-  
+
   .blog__content .btn {
     background-color: transparent;
     border: 1px solid var(--white);
@@ -632,13 +662,16 @@ nav {
     gap: 2rem;
   }
 }
+
 .nav__logo img {
-  width: 250px;  /* Set desired width */
-  height: 100px; /* Set desired height */
+  width: 250px;
+  /* Set desired width */
+  height: 100px;
+  /* Set desired height */
   object-fit: contain;
 }
 
 img[src="logo.webp"] {
-  transform: scale(1.5); /* Adjust scaling factor as needed */
+  transform: scale(1.5);
+  /* Adjust scaling factor as needed */
 }
-

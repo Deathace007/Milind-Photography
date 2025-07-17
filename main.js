@@ -78,7 +78,11 @@ Array.from(instagram.children).forEach((item) => {
 });
 
 const imageSwiper = new Swiper('.swiper', {
-  // ... your existing options
+  loop: true,
+  autoplay: {
+    delay: 3000, // Slide changes every 3 seconds
+    disableOnInteraction: false,
+  },
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
