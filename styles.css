@@ -102,6 +102,41 @@ body {
 
   /* Loops back to the first */
 }
+@media (max-width: 768px) {
+  .header {
+    min-height: 400px; /* Reduce height for mobile */
+    background-size: cover;
+    background-position: center;
+  }
+
+  @keyframes slideshow {
+    0% {
+      background-image: url("assets/power1.webp");
+      background-position: center;
+      background-size: cover;
+    }
+  
+    33% {
+      background-image: url("assets/8.webp");
+      background-position: center;
+      background-size: cover;
+    }
+  
+    66% {
+      background-image: url("assets/looking.webp");
+      background-position: center;
+      background-size: cover;
+    }
+  
+    100% {
+      background-image: url("assets/power2.webp");
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  
+}
+
 
 nav {
   position: sticky;
@@ -120,6 +155,47 @@ nav {
   justify-content: space-between;
   gap: 1rem;
   background-color: var(--text-dark);
+}
+/* Update the nav header styles for mobile */
+@media (max-width: 768px) {
+  .nav__header {
+    padding: 0.5rem; /* Reduced from 1rem */
+    max-height: 50px; /* Set fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem; /* Reduced from 1rem */
+    background-color: var(--text-light);
+  }
+
+  .nav__logo img {
+    width: 120px; /* Reduced from 250px */
+    height: 40px; /* Reduced from 100px */
+    object-fit: contain;
+  }
+
+  .nav__menu__btn {
+    font-size: 1.25rem; /* Reduced from 1.5rem */
+    padding: 0.25rem;
+  }
+
+  .nav__links {
+    padding: 1rem; /* Reduced from 2rem */
+    gap: 1rem; /* Reduced from 2rem */
+  }
+}
+
+/* Additional styles for very small screens */
+@media (max-width: 480px) {
+  .nav__header {
+    min-height: 45px;
+    padding: 0.25rem;
+  }
+
+  .nav__logo img {
+    width: 100px;
+    height: 35px;
+  }
 }
 
 .nav__logo img {
@@ -180,7 +256,7 @@ nav {
 
 .about__container img {
   width: 100%;
-  max-width: 300px;
+  max-width: 250px;
   display: block;
   margin-inline: auto;
 }
