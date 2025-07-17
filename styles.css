@@ -104,9 +104,9 @@ body {
 }
 
 nav {
-  position: fixed;
-  isolation: isolate;
+  position: sticky;
   top: 0;
+  isolation: isolate;
   width: 100%;
   max-width: var(--max-width);
   margin: auto;
