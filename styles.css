@@ -82,10 +82,10 @@ body {
 }
 
 @keyframes slideshow {
-  0%, 100% { background-image: url("assets/power1.jpeg"); }
-  33% { background-image: url("assets/8.jpg"); }
-  66% { background-image: url("assets/looking.jpg"); }
-  99% { background-image: url("assets/power2.jpeg"); }
+  0%, 100% { background-image: url("assets/power1.webp"); }
+  33% { background-image: url("assets/8.webp"); }
+  66% { background-image: url("assets/looking.webp"); }
+  99% { background-image: url("assets/power2.webp"); }
 }
 
 nav {
@@ -222,7 +222,7 @@ nav {
 
 .service {
   background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
-    url("assets/service.jpg");
+    url("assets/service.webp");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -332,7 +332,7 @@ nav {
 
 .blog {
   min-height: 600px;
-  background-image: url("assets/black3.jpg");
+  background-image: url("assets/black3.webp");
   background-size: 100% 600px;
   background-position: top center;
   background-repeat: no-repeat;
