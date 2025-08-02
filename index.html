@@ -1,4 +1,4 @@
-<!doctype html>
+```<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -193,74 +193,86 @@
             class="section__container video__slideshow__container"
             id="video-slideshow"
         >
-            <h2 class="section__header">OUR WORK</h2>
-            <p class="section__description">
-                Explore our finest video productions showcasing our expertise in
-                cinematography, storytelling, and visual artistry across various
-                projects and events.
-            </p>
-
             <div class="video__showcase">
-                <div class="video__player__wrapper">
-                    <div class="video__loading" id="video-loading">
-                        <div class="loading__spinner"></div>
-                        <p>Loading video...</p>
-                    </div>
-                    <video
-                        id="video-player"
-                        preload="metadata"
-                        poster="assets/video-poster.jpg"
-                    >
-                        <source
-                            id="video-source"
-                            src="video1.mp4"
-                            type="video/mp4"
-                        />
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="video__overlay" id="video-overlay">
-                        <button class="video__play__btn" id="video-play-btn">
-                            <i class="ri-play-circle-fill"></i>
-                        </button>
+                <div class="video-section-header">
+                    <h2 class="section__header">OUR WORK</h2>
+                    <p class="section__description">
+                        Explore our finest video productions showcasing our
+                        expertise in cinematography, storytelling, and visual
+                        artistry across various projects and events.
+                    </p>
+                </div>
+
+                <div class="main-video">
+                    <div class="video__player__wrapper">
+                        <div class="video__loading" id="video-loading">
+                            <div class="loading__spinner"></div>
+                            <p>Loading video...</p>
+                        </div>
+                        <video
+                            id="video-player"
+                            preload="metadata"
+                            poster="assets/video-poster.jpg"
+                        >
+                            <source
+                                id="video-source"
+                                src="video1.mp4"
+                                type="video/mp4"
+                            />
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video__overlay" id="video-overlay">
+                            <button
+                                class="video__play__btn"
+                                id="video-play-btn"
+                            >
+                                <i class="ri-play-circle-fill"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="video__controls__section">
-                    <div class="video__info">
-                        <h3 class="video__title" id="video-title">
-                            Project Showcase
-                        </h3>
-                        <p class="video__description" id="video-description">
-                            Professional video production and cinematography
-                        </p>
-                    </div>
-
-                    <div class="video__navigation">
-                        <button
-                            id="prev-video"
-                            class="video__nav__btn video__nav__prev"
-                        >
-                            <i class="ri-arrow-left-s-line"></i>
-                        </button>
-
-                        <div class="video__indicator">
-                            <span id="video-counter" class="video__counter"
-                                >1 / 5</span
+                <div class="video-description">
+                    <div class="video__controls__section">
+                        <div class="video__info">
+                            <h3 class="video__title" id="video-title">
+                                Project Showcase
+                            </h3>
+                            <p
+                                class="video__description"
+                                id="video-description"
                             >
-                            <div class="video__progress">
-                                <div
-                                    class="video__progress__bar"
-                                    id="video-progress"
-                                ></div>
-                            </div>
+                                Professional video production and cinematography
+                            </p>
                         </div>
 
-                        <button
-                            id="next-video"
-                            class="video__nav__btn video__nav__next"
-                        >
-                            <i class="ri-arrow-right-s-line"></i>
-                        </button>
+                        <div class="video__navigation">
+                            <button
+                                id="prev-video"
+                                class="video__nav__btn video__nav__prev"
+                            >
+                                <i class="ri-arrow-left-s-line"></i>
+                            </button>
+
+                            <div class="video__indicator">
+                                <span id="video-counter" class="video__counter"
+                                    >1 / 5</span
+                                >
+                                <div class="video__progress">
+                                    <div
+                                        class="video__progress__bar"
+                                        id="video-progress"
+                                    ></div>
+                                </div>
+                            </div>
+
+                            <button
+                                id="next-video"
+                                class="video__nav__btn video__nav__next"
+                            >
+                                <i class="ri-arrow-right-s-line"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -497,42 +509,38 @@
                         </a>
                     </div>
                 </div>
-
                 <div class="footer__col">
-                    <ul class="footer__links">
-                        <li><a href="#home">HOME</a></li>
-                        <li><a href="#about">ABOUT US</a></li>
-                        <li><a href="#service">SERVICES</a></li>
-                        <li><a href="#client">CLIENT</a></li>
-                        <li><a href="#blog">BLOG</a></li>
-                        <li><a href="#contact">CONTACT US</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer__col">
-                    <h4>📩 Stay in Touch</h4>
+                    <h4>SAY HELLO</h4>
                     <p>
-                        Stay updated with the latest from
-                        <strong>Capturer</strong>! Join our community and never
-                        miss a moment.
+                        <i class="ri-map-pin-2-fill"></i>
+                        Mumbai, India
                     </p>
                     <p>
-                        📧
-                        <a href="mailto:Milind7june@gmail.com"
-                            >Milind7june@gmail.com</a
-                        >
-                        <br />
-                        📞 <a href="tel:+919820957548">+91 98209 57548</a>
+                        <i class="ri-mail-fill"></i>
+                        milindsalunke@gmail.com
+                    </p>
+                    <p>
+                        <i class="ri-phone-fill"></i>
+                        +91 9820957548
+                    </p>
+                </div>
+                <div class="footer__col">
+                    <h4>Our Story</h4>
+                    <p>
+                        With 25 years of experience in the film and media
+                        industry, I have honed my skills in photography and
+                        video production, working with leading production houses
+                        on a variety of projects. My portfolio showcases a
+                        diverse range of work, from cinematic films to impactful
+                        ad campaigns. p>
                     </p>
                 </div>
             </div>
-
             <div class="footer__bar">
-                Copyright © 2025 Milind Salunke. All rights reserved.
+                Copyright © 2024 Web Design Mastery. All rights reserved.
             </div>
         </footer>
 
-        <!-- Scripts -->
         <script src="https://unpkg.com/scrollreveal"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script src="main.js"></script>
