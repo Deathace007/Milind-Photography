@@ -114,6 +114,8 @@ if (instagram && !instagram.getAttribute("data-duplicated")) {
 
 // Enhanced Video Slideshow functionality
 document.addEventListener('DOMContentLoaded', function() {
+  console.log('🎬 Enhanced Video Slideshow starting...');
+  
   // Video data with metadata
   const videoData = [
     {
@@ -162,7 +164,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Initialize video slideshow
   function initVideoSlideshow() {
-    if (!videoPlayer || !videoSource) return;
+    if (!videoPlayer || !videoSource) {
+      console.error('❌ Video player or source not found!');
+      return;
+    }
+
+    console.log('🎬 Initializing video slideshow...');
+    console.log('🎬 Video player found:', !!videoPlayer);
+    console.log('🎬 Video source found:', !!videoSource);
+    console.log('🎬 Video overlay found:', !!videoOverlay);
+    console.log('🎬 Video play button found:', !!videoPlayBtn);
 
     // Set up thumbnails click handlers
     setupThumbnails();
@@ -195,16 +206,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Show overlay when video ends
     videoPlayer.addEventListener('ended', () => {
+      console.log('🎬 Video ended, showing overlay');
       showOverlay();
     });
 
     // Hide loading when video can play
     videoPlayer.addEventListener('canplay', () => {
+      console.log('🎬 Video can play, hiding loading');
       hideLoading();
     });
 
     // Show loading when video starts loading
     videoPlayer.addEventListener('loadstart', () => {
+      console.log('🎬 Video loading started');
       showLoading();
     });
 
@@ -216,16 +230,89 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Update progress during playback
     videoPlayer.addEventListener('timeupdate', updateProgress);
+
+    // Add play and pause event listeners for debugging
+    videoPlayer.addEventListener('play', () => {
+      console.log('🎬 Video PLAY event fired');
+    });
+
+    videoPlayer.addEventListener('pause', () => {
+      console.log('🎬 Video PAUSE event fired');
+    });
+    
+    // Add click handler to video element for play/pause toggle
+    videoPlayer.addEventListener('click', (e) => {
+      console.log('🎬 Video element clicked');
+      e.preventDefault(); // Prevent browser's default video controls
+      if (videoPlayer.paused || videoPlayer.ended) {
+        console.log('🎬 Video is paused/ended - playing...');
+        playVideo();
+      } else {
+        console.log('🎬 Video is playing - pausing...');
+        videoPlayer.pause();
+        showOverlay();
+      }
+    });
   }
 
+  // FIXED setupControlButtons function
   function setupControlButtons() {
-    // Play button functionality
-    if (videoPlayBtn) {
-      videoPlayBtn.addEventListener('click', playVideo);
+    // Function to handle play/pause toggle
+    function togglePlayPause() {
+      if (!videoPlayer) return;
+      
+      console.log('🎬 Toggle play/pause called');
+      console.log('🎬 Current paused state:', videoPlayer.paused);
+      console.log('🎬 Current ended state:', videoPlayer.ended);
+      
+      if (videoPlayer.paused || videoPlayer.ended) {
+        console.log('🎬 Video is paused/ended - playing...');
+        playVideo();
+      } else {
+        console.log('🎬 Video is playing - pausing...');
+        videoPlayer.pause();
+        showOverlay();
+      }
     }
 
+    // Play button functionality - FIXED
+    if (videoPlayBtn) {
+      console.log('🎬 Adding click listener to video play button');
+      videoPlayBtn.addEventListener('click', function(e) {
+        console.log('🎬 Video play button clicked!');
+        e.preventDefault();
+        e.stopPropagation();
+        if (videoPlayer.paused || videoPlayer.ended) {
+            console.log('🎬 Keyboard: Playing video...');
+            playVideo();
+          } else {
+            console.log('🎬 Keyboard: Pausing video...');
+            videoPlayer.pause();
+            showOverlay();
+          }
+      });
+    } else {
+      console.warn('⚠️ Video play button not found!');
+    }
+
+    // Video overlay functionality - FIXED  
     if (videoOverlay) {
-      videoOverlay.addEventListener('click', playVideo);
+      console.log('🎬 Adding click listener to video overlay');
+      videoOverlay.addEventListener('click', function(e) {
+        console.log('🎬 Video overlay clicked!');
+        e.preventDefault();
+        e.stopPropagation();
+        if (videoPlayer.paused || videoPlayer.ended) {
+            console.log('🎬 Keyboard: Playing video...');
+            playVideo();
+          } else {
+            console.log('🎬 Keyboard: Pausing video...');
+            videoPlayer.pause();
+            showOverlay();
+          }
+      });
+    } else {
+      console.warn('⚠️ Video overlay not found!');
     }
 
     // Navigation buttons
@@ -253,6 +340,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     isTransitioning = true;
     const video = videoData[index];
+
+    console.log('🎬 Loading video:', video.title);
 
     // Show loading state
     showLoading();
@@ -329,22 +418,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function playVideo() {
     if (!videoPlayer) return;
+    
+    console.log('🎬 PlayVideo function called - attempting to play video');
+    console.log('🎬 Current video source:', videoPlayer.currentSrc);
+    console.log('🎬 Video ready state:', videoPlayer.readyState);
+    console.log('🎬 Video paused state:', videoPlayer.paused);
 
     hideOverlay();
     videoPlayer.play().catch(e => {
-      console.error('Error playing video:', e);
+      console.error('❌ Error playing video:', e);
+      console.error('❌ Error details:', e.name, e.message);
       showOverlay();
     });
   }
 
   function showOverlay() {
     if (videoOverlay) {
+      console.log('🎬 Showing overlay');
       videoOverlay.classList.remove('hidden');
     }
   }
 
   function hideOverlay() {
     if (videoOverlay) {
+      console.log('🎬 Hiding overlay');
       videoOverlay.classList.add('hidden');
     }
   }
@@ -361,7 +458,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Keyboard navigation
+  // FIXED Keyboard navigation
   document.addEventListener('keydown', (e) => {
     if (e.target.tagName.toLowerCase() === 'input' || e.target.tagName.toLowerCase() === 'textarea') {
       return; // Don't interfere with form inputs
@@ -382,9 +479,15 @@ document.addEventListener('DOMContentLoaded', function() {
       case 'Enter':
         if (videoPlayer) {
           e.preventDefault();
-          if (videoPlayer.paused) {
+          console.log('🎬 Keyboard shortcut pressed:', e.key);
+          console.log('🎬 Video paused state before toggle:', videoPlayer.paused);
+          
+          // FIXED keyboard toggle logic
+          if (videoPlayer.paused || videoPlayer.ended) {
+            console.log('🎬 Keyboard: Playing video...');
             playVideo();
           } else {
+            console.log('🎬 Keyboard: Pausing video...');
             videoPlayer.pause();
             showOverlay();
           }
@@ -396,51 +499,5 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize the video slideshow
   initVideoSlideshow();
 
-  console.log('Enhanced video slideshow initialized successfully');
-});
-
-// Add event listener for document ready to ensure DOM is fully loaded
-// Video slideshow logic for #video-slideshow
-document.addEventListener('DOMContentLoaded', function() {
-  // Video slideshow setup
-  const videoFiles = [
-    'video1.mp4',
-    'video2.mp4',
-    'video3.mp4',
-    'video4.mp4',
-    'video5.mp4'
-  ];
-  const videoPlayer = document.getElementById('video-player');
-  const videoSource = document.getElementById('video-source');
-  const prevBtn = document.getElementById('prev-video');
-  const nextBtn = document.getElementById('next-video');
-  const videoCounter = document.getElementById('video-counter');
-  let currentVideo = 0;
-
-  function loadVideo(index) {
-    if (!videoPlayer || !videoSource) return;
-    // Pause current video
-    videoPlayer.pause();
-    // Update source
-    videoSource.src = videoFiles[index];
-    videoPlayer.load();
-    videoCounter.textContent = `${index + 1}/${videoFiles.length}`;
-    // Autoplay after loading
-    videoPlayer.play();
-  }
-
-  if (videoPlayer && videoSource && prevBtn && nextBtn && videoCounter) {
-    prevBtn.addEventListener('click', function() {
-      currentVideo = (currentVideo - 1 + videoFiles.length) % videoFiles.length;
-      loadVideo(currentVideo);
-    });
-    nextBtn.addEventListener('click', function() {
-      currentVideo = (currentVideo + 1) % videoFiles.length;
-      loadVideo(currentVideo);
-    });
-    // Initial load
-    loadVideo(currentVideo);
-  }
-
-  console.log('Document fully loaded and script executed');
+  console.log('🎬 Enhanced video slideshow initialized successfully');
 });
