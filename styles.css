@@ -96,7 +96,7 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   opacity: 0;
-  animation: fade 12s infinite;
+  animation: fade 16s infinite;
 }
 
 .header .slide:nth-child(1) {
@@ -111,7 +111,10 @@ body {
   background-image: url("assets/looking.webp");
   animation-delay: 8s;
 }
-
+.header .slide:nth-child(4) {
+  background-image: url("assets/power2.webp");
+  animation-delay: 12s;
+}
 @keyframes fade {
   0% {
     opacity: 0;
